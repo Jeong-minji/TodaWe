@@ -20,4 +20,24 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  @font-face {
+    font-family: AmaticSC;
+    src: url('/fonts/AmaticSC-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: AmaticSCB;
+    src: url('/fonts/AmaticSC-Bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: Hangang;
+    src: url('/fonts/SEOULHANGANGB.TTF') format('truetype');
+  }
+
+  @font-face {
+    font-family: HangangB;
+    src: url('/fonts/SEOULHANGANGEB.TTF') format('truetype');
+  }
 `;
