@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Index = () => {
-  return <Container>English</Container>;
+  return <></>;
 };
 
 const Container = styled.div`
