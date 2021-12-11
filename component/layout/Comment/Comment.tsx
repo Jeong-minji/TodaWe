@@ -31,7 +31,11 @@ const CommentBox = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 722px;
+<<<<<<< HEAD
   /* height: 100px; */
+=======
+  height: 100px;
+>>>>>>> 602e38e (Add: Personal 창 레이아웃 구현)
   background-color: orange;
   border-bottom: 1px solid #ddd3d3;
   margin: 0 auto;

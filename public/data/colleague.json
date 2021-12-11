@@ -1,0 +1,116 @@
+{
+  "colleague": [
+    {
+      "grade": "25기",
+      "name": "정민지",
+      "status": "BAD",
+      "feeling": "EAT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "구본욱",
+      "status": "GOOD",
+      "feeling": "REST",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "민지정",
+      "status": "SOSO",
+      "feeling": "CODE",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "쿠본욱",
+      "status": "BAD",
+      "feeling": "REST",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "정민쥐",
+      "status": "GOOD",
+      "feeling": "DRINK",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "짜박이",
+      "status": "BAD",
+      "feeling": "EAT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "정민지",
+      "status": "BAD",
+      "feeling": "DRINK",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "구본욱",
+      "status": "GOOD",
+      "feeling": "REST",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "민지정",
+      "status": "SOSO",
+      "feeling": "REST",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "쿠본욱",
+      "status": "BAD",
+      "feeling": "EAT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "정민쥐",
+      "status": "GOOD",
+      "feeling": "DRINK",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "짜박이",
+      "status": "BAD",
+      "feeling": "EAT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "정민지",
+      "status": "BAD",
+      "feeling": "OUT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "구본욱",
+      "status": "GOOD",
+      "feeling": "OUT",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "민지정",
+      "status": "SOSO",
+      "feeling": "CODE",
+      "job": "student"
+    },
+    {
+      "grade": "25기",
+      "name": "쿠본욱",
+      "status": "BAD",
+      "feeling": "DRINK",
+      "job": "student"
+    }
+  ]
+}
