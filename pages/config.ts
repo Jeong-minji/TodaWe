@@ -1,10 +1,16 @@
-const IP = "http://localhost:8080";
+const IP = "http://9430-183-96-56-160.ngrok.io";
 const API = {
   users: `${IP}/users`,
   comments: `${IP}/comments`,
   likes: `${IP}/likes`,
 };
 
-export const TOKEN = localStorage.getItem("accessToken");
+let TOKEN = "";
+
+if (typeof window !== "undefined") {
+  TOKEN = localStorage.getItem("token");
+}
+
+export { TOKEN };
 
 export default API;
