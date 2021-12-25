@@ -1,5 +1,12 @@
-import Document, { DocumentContext } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
+import React from "react";
 
 class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -9,7 +16,8 @@ class CustomDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -21,7 +29,7 @@ class CustomDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       };
     } catch (error) {
       throw error;
@@ -29,6 +37,22 @@ class CustomDocument extends Document {
       sheet.seal();
     }
   }
+
+  render() {
+    return (
+      <Html>
+        <Head></Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
 
 export default CustomDocument;
+
+// react로 치면 index.html 파일
+// 어플리케이션의 구조를 만들어주는 파일
+// styled-components 같은 스크립트들을 적용

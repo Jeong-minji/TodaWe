@@ -1,12 +1,9 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import TOKEN from "../pages/config";
 
-const Index = () => {
-  return <></>;
+const Index: React.FC = () => {
+  return <h1>This is Main</h1>;
 };
-
-const Container = styled.div`
-  font-family: AmaticSC;
-  font-size: 50px;
-`;
 
 export default Index;

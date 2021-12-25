@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Router, useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import LoginModal from "../../layout/Login/LoginModal";
 
 const Nav: React.FC = () => {
+  const router = useRouter();
+  const [isModalOn, setIsModalOn] = useState<boolean>(false);
+  const [isTokenSaved, setIsTokenSaved] = useState<boolean>(false);
+
+  const handleBtnLogout = () => {
+    localStorage.clear();
+    window.location.replace("/");
+  };
+
+  const setModalOpen = () => {
+    setIsModalOn(true);
+  };
+
+  const setModalClose = () => {
+    setIsModalOn(false);
+  };
+
+  useEffect(() => {
+    setIsTokenSaved(localStorage.getItem("token") ? true : false);
+  }, []);
+
   return (
     <NavWrapper>
       <Section rowNum="1">
@@ -14,18 +37,29 @@ const Nav: React.FC = () => {
       </Section>
       <Section rowNum="2">
         <Link href="/mentor" passHref>
-          <a>MENTOR</a>
+          <LinkText page="/mentor" currentPath={router.pathname}>
+            MENTOR
+          </LinkText>
         </Link>
         <Link href="/colleague" passHref>
-          <a>COLLEAGUE</a>
+          <LinkText page="/colleage" currentPath={router.pathname}>
+            COLLEAGUE
+          </LinkText>
         </Link>
         <Link href="/mypage" passHref>
-          <a>HOW DO YOU FEEL?</a>
+          <LinkText page="/mypage" currentPath={router.pathname}>
+            HOW DO YOU FEEL?
+          </LinkText>
         </Link>
       </Section>
       <Section rowNum="3">
-        <BtnLogin>LOGIN</BtnLogin>
+        {isTokenSaved ? (
+          <BtnLogout onClick={handleBtnLogout}>LOGOUT</BtnLogout>
+        ) : (
+          <BtnLogin onClick={setModalOpen}>LOGIN</BtnLogin>
+        )}
       </Section>
+      <LoginModal isVisible={isModalOn} setModalClose={setModalClose} />
     </NavWrapper>
   );
 };
@@ -56,7 +90,34 @@ const LogoName = styled.a`
   cursor: pointer;
 `;
 
+const LinkText = styled.a<{ page: string; currentPath: string }>`
+  border-bottom: ${({ page, currentPath }) =>
+    page === currentPath ? "2px solid black" : 0};
+
+  &:hover {
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      display: block;
+      flex: 1;
+      height: 1px;
+      transition: background-color 1s ease-out;
+      background-color: black;
+      border: 1px solid red;
+    }
+  }
+`;
+
 const BtnLogin = styled.button`
+  cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+  font-family: AmaticSCB;
+  font-size: 25px;
+`;
+
+const BtnLogout = styled.button`
   cursor: pointer;
   border-style: none;
   background-color: transparent;
