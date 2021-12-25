@@ -1,12 +1,20 @@
 import styled from "styled-components";
+import BannerList from "../component/layout/Main/Banner/BannerList";
+import RecommendFriends from "../component/layout/Main/RecommendFriends/RecommendFriends";
 
 const Index = () => {
-  return <></>;
+  return (
+    <Wrapper>
+      <BannerList />
+      <RecommendFriends />
+    </Wrapper>
+  );
 };
 
-const Container = styled.div`
-  font-family: AmaticSC;
-  font-size: 50px;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 300px;
 `;
 
 export default Index;
