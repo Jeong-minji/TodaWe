@@ -1,32 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const CATEGORY = ["이름", "기분", "상태"];
+interface SortingValues {
+  isOpen: boolean;
+  theme: string;
+  category: object[];
+  toggleMenu: () => void;
+  changeTheme: (e: any) => void;
+}
 
-const Sorting: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [name, setName] = useState<string>("정렬");
-
-  const toggleMenu = () => {
-    setIsOpen((isOpen) => !isOpen);
-  };
-
-  const changeName = (e: any) => {
-    // console.log(e.target.id);
-    setName(e.target.id);
-    setIsOpen((isOpen) => !isOpen);
-  };
-
+const Sorting: React.FC<SortingValues> = ({
+  isOpen,
+  theme,
+  category,
+  toggleMenu,
+  changeTheme,
+}) => {
   // console.log(name);
   return (
     <SortingBox>
       <SortingTab onClick={() => toggleMenu()}>
-        {name}&nbsp;&nbsp;&nbsp;▼
+        {theme}&nbsp;&nbsp;&nbsp;▼
       </SortingTab>
-      <SortingContent content={isOpen.toString()}>
-        {CATEGORY?.map((name, idx) => (
-          <SortingCategory key={idx} id={name} onClick={changeName}>
-            {name}
+      <SortingContent content={isOpen}>
+        {Object.keys(category).map((theme, idx) => (
+          <SortingCategory key={idx} id={theme} onClick={changeTheme}>
+            {Object.values(theme)}
           </SortingCategory>
         ))}
       </SortingContent>
@@ -51,8 +50,8 @@ const SortingTab = styled.div`
   font-family: Hangang;
 `;
 
-const SortingContent = styled.ul<{ content: string }>`
-  display: ${({ content }) => (content == "true" ? "" : "none;")};
+const SortingContent = styled.ul<{ content: boolean }>`
+  display: ${({ content }) => (content ? "" : "none;")};
   position: absolute;
 `;
 
