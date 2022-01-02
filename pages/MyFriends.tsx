@@ -5,8 +5,38 @@ import Search from "../component/layout/MyFriends/Search";
 import Sorting from "../component/layout/MyFriends/Sorting";
 import Ranker from "../component/layout/MyFriends/Ranker";
 
+const CATEGORY = { 이름: "name", 상태: "status", 기분: "feeling" };
+
 const MyFriends = () => {
   const [colleagueList, setColleagueList] = useState([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string>("정렬");
+  const [category, setCategory] = useState<object>(CATEGORY);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  };
+
+  const changeTheme = (e: any) => {
+    // console.log(e.target.id);
+    setTheme(e.target.id);
+    setIsOpen((isOpen) => !isOpen);
+    console.log(theme);
+
+    colleagueList.sort(function (a, b) {
+      let nameA = a[category[theme].toString()];
+      let nameB = b[category[theme].toString()];
+      if (nameA < nameB) {
+        return -1;
+      } else if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(CATEGORY);
+    setColleagueList(colleagueList);
+  };
 
   useEffect(() => {
     fetch("data/colleague.json")
@@ -29,7 +59,13 @@ const MyFriends = () => {
         <FriendsBox>
           <FriendsNav>
             <Search />
-            <Sorting />
+            <Sorting
+              isOpen={isOpen}
+              changeTheme={changeTheme}
+              toggleMenu={toggleMenu}
+              theme={theme}
+              category={category}
+            />
           </FriendsNav>
           <FriendsList>
             {colleagueList.map((friends, idx) => (
