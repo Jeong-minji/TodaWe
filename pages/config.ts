@@ -1,4 +1,4 @@
-const IP = "http://9430-183-96-56-160.ngrok.io";
+const IP = "http://80d1-124-5-187-134.ngrok.io";
 const API = {
   users: `${IP}/users`,
   comments: `${IP}/comments`,

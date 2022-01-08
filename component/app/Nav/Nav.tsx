@@ -41,7 +41,7 @@ const Nav: React.FC = () => {
             MENTOR
           </LinkText>
         </Link>
-        <Link href="/colleague" passHref>
+        <Link href="/MyFriends" passHref>
           <LinkText page="/colleage" currentPath={router.pathname}>
             COLLEAGUE
           </LinkText>
@@ -103,8 +103,6 @@ const LinkText = styled.a<{ page: string; currentPath: string }>`
       flex: 1;
       height: 1px;
       transition: background-color 1s ease-out;
-      background-color: black;
-      border: 1px solid red;
     }
   }
 `;

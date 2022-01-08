@@ -5,7 +5,7 @@ import Personal from "../component/layout/Personal/Personal";
 const MyInfo = () => {
   return (
     <Wrapper>
-      <Personal></Personal>
+      <Personal />
     </Wrapper>
   );
 };
