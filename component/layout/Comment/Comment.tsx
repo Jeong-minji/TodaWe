@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Comment = ({ comment }) => {
+interface CommentI {
+  key: number;
+  comment: { name: string; date: string; comment: string };
+  userType: string;
+  getModalState?: (modal: boolean) => void;
+}
+
+const Comment: React.FC<CommentI> = ({ comment, userType, getModalState }) => {
+  const [isModalOn, setIsModalOn] = useState(false);
+
   const addRepl = () => {
-    // colleague 페이지 모달 띄우기
+    setIsModalOn(true);
+    getModalState(true);
   };
 
   return (
@@ -16,9 +26,11 @@ const Comment = ({ comment }) => {
         </CommentorInfo>
         <CommentContent>{comment.comment}</CommentContent>
       </CommentDesc>
-      <ReplBtnBox>
-        <ReplBtn onClick={addRepl}>댓글 다쉴?</ReplBtn>
-      </ReplBtnBox>
+      {userType === "me" ? (
+        <ReplBtnBox>
+          <ReplBtn onClick={addRepl}>댓글 다쉴?</ReplBtn>
+        </ReplBtnBox>
+      ) : null}
     </CommentBox>
   );
 };
@@ -30,13 +42,7 @@ const CommentBox = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 722px;
-<<<<<<< HEAD
-  /* height: 100px; */
-=======
-  height: 100px;
->>>>>>> 602e38e (Add: Personal 창 레이아웃 구현)
-  background-color: orange;
+  width: 100%;
   border-bottom: 1px solid #ddd3d3;
   margin: 0 auto;
 `;
@@ -80,6 +86,10 @@ const CommentContent = styled.div`
   font-size: 16px;
   /* padding-bottom: 10px; */
   font-family: Hangang;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ReplBtnBox = styled.div`
@@ -94,4 +104,5 @@ const ReplBtn = styled.div`
   border: 1px solid brown;
   border-radius: 8px;
   font-family: Hangang;
+  cursor: pointer;
 `;

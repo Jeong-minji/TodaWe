@@ -1,9 +1,20 @@
-import React, { useEffect } from "react";
 import styled from "styled-components";
-import TOKEN from "../pages/config";
+import BannerList from "../component/layout/Main/Banner/BannerList";
+import RecommendFriends from "../component/layout/Main/RecommendFriends/RecommendFriends";
 
-const Index: React.FC = () => {
-  return <h1>This is Main</h1>;
+const Index = () => {
+  return (
+    <Wrapper>
+      <BannerList />
+      <RecommendFriends />
+    </Wrapper>
+  );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 300px;
+`;
 
 export default Index;

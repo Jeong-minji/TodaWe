@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "25기 김용현",
+    "feeling": "GOOD",
+    "status": "EAT",
+    "isLiked": false
+  },
+  {
+    "id": 2,
+    "name": "25기 정민지",
+    "feeling": "SOSO",
+    "status": "DRINK",
+    "isLiked": true
+  },
+  {
+    "id": 3,
+    "name": "25기 구본욱",
+    "feeling": "BAD",
+    "status": "REST",
+    "isLiked": false
+  }
+]
