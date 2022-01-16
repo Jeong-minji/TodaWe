@@ -56,10 +56,10 @@ const FriendsItem: React.FC<FriendsItemI> = ({
   return (
     <Wrapper>
       <ProfileImage
-        src="/images/rabbit.png"
+        src="/images/profile_rabbit.png"
         alt="profile_image"
         width={140}
-        height={130}
+        height={140}
       />
       <UserInfo>
         <StatusColor color={FeelingObj[feeling]}></StatusColor>
@@ -86,7 +86,9 @@ const Wrapper = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const ProfileImage = styled(Image)``;
+const ProfileImage = styled(Image)`
+z-index: 0;
+`;
 
 const UserInfo = styled.div`
   display: flex;

@@ -30,6 +30,7 @@ const BannerList: React.FC = () => {
 
 const Wrapper = styled.div`
   padding: 30px 0;
+  z-index: -1;
 `;
 
 const StyledSlider = styled(Slider)`

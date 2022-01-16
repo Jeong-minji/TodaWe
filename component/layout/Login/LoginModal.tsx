@@ -56,11 +56,12 @@ const OutBackground = styled.div<{ isVisible: boolean }>`
   position: absolute;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
 `;
 
 const ModalWrapper = styled.div`
   display: flex;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.15);
 `;
@@ -68,8 +69,8 @@ const ModalWrapper = styled.div`
 const LogoArea = styled.div`
   padding: 25px 0;
   background-color: #f1eae3;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 `;
 
 const Logo = styled.img`
